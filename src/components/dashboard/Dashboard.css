@@ -28,12 +28,16 @@ body {
     height: calc(100vh - 4em);
     width: calc(100% - 17vw - 4em);
     grid-template-areas:
-      "box1 box1 box1 box2 box2 box2 box3 box3 box3 box6 box6 box6"
-      "box1 box1 box1 box2 box2 box2 box3 box3 box3 box6 box6 box6"
-      "box5 box5 box5 box5 box5 box5 box3 box3 box3 box6 box6 box6"
-      "box5 box5 box5 box5 box5 box5 box4 box4 box4 box6 box6 box6"
-      "box5 box5 box5 box5 box5 box5 box4 box4 box4 box6 box6 box6"
-      "box5 box5 box5 box5 box5 box5 box4 box4 box4 box6 box6 box6";
+      "box2 box2 box2 box3 box3 box3 box4 box4 box4 box1 box1 box1 box1 "
+      "box2 box2 box2 box3 box3 box3 box4 box4 box4 box1 box1 box1 box1"
+      "box2 box2 box2 box3 box3 box3 box4 box4 box4 box6 box6 box6 box6"
+      "box5 box5 box5 box5 box5 box5 box5 box5 box5 box6 box6 box6 box6"
+      "box5 box5 box5 box5 box5 box5 box5 box5 box5 box6 box6 box6 box6 "
+      "box5 box5 box5 box5 box5 box5 box5 box5 box5 box6 box6 box6 box6 "
+      "box5 box5 box5 box5 box5 box5 box5 box5 box5 box6 box6 box6 box6 "
+      "box5 box5 box5 box5 box5 box5 box5 box5 box5 box6 box6 box6 box6 "
+      "box5 box5 box5 box5 box5 box5 box5 box5 box5 box6 box6 box6 box6 "
+      "box5 box5 box5 box5 box5 box5 box5 box5 box5 box6 box6 box6 box6 ";
   }
   
   .box {
@@ -94,20 +98,20 @@ body {
     color: green;
   }
   
-  .box3.negative, .box4.negative {
+  .box2.negative,.box3.negative, .box4.negative {
     background-color: rgba(255, 0, 0, 0.1);
   }
   
-  .box3.positive, .box4.positive {
+  .box2.positive,.box3.positive, .box4.positive {
     background-color: rgba(0, 255, 0, 0.1);
   }
   
-  .box3.negative:hover, .box4.negative:hover {
+  .box2.negative:hover,.box3.negative:hover, .box4.negative:hover {
     background-color: rgba(255, 0, 0, 0.2);
     border-color: red;
   }
   
-  .box3.positive:hover, .box4.positive:hover {
+  .box2.positive:hover,.box3.positive:hover, .box4.positive:hover {
     background-color: rgba(0, 255, 0, 0.2);
     border-color: green;
   }
@@ -129,12 +133,14 @@ body {
   .coin-list {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    margin-top:1em;
+    margin-left: -1.65em;
     padding: 0;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.8);
     overflow-y: auto;
     height: 100%;
+    width:19em;
   }
   
   .coin-card {
@@ -145,8 +151,9 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s ease, border 0.3s ease;
     background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid #ccc;
-    width: 100%;
+    border-bottom: 1px solid #ccc;
+    height:40px;
+    width: 88%;
   }
   
   .coin-card.negative:hover {
