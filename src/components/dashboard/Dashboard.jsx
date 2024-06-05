@@ -40,11 +40,8 @@ const Dashboard = () => {
         <div className="box box1">
           BALANCE
         </div>
-        <div className="box box2">
-          PROFIT LOSS
-        </div>
         {coins.slice(0, 1).map((coin) => (
-          <div className={`box box3 ${coin.price_change_percentage_24h < 0 ? 'negative' : 'positive'}`} key={coin.id}>
+          <div className={`box box2 ${coin.price_change_percentage_24h < 0 ? 'negative' : 'positive'}`} key={coin.id}>
             <div className="coin-header">
               <img src={coin.image} alt={coin.name} />
               <h2>{coin.name}</h2>
@@ -72,6 +69,34 @@ const Dashboard = () => {
           </div>
         ))}
         {coins.slice(1, 2).map((coin) => (
+          <div className={`box box3 ${coin.price_change_percentage_24h < 0 ? 'negative' : 'positive'}`} key={coin.id}>
+            <div className="coin-header">
+              <img src={coin.image} alt={coin.name} />
+              <h2>{coin.name}</h2>
+            </div>
+            <div className="coin-details">
+              <div className="detail-item">
+                <span className="label">Current Price:</span>
+                <span className="value">₹{coin.current_price}</span>
+              </div>
+              <div className="detail-item">
+                <span className="label">24h Change:</span>
+                <span className={`value ${coin.price_change_percentage_24h < 0 ? 'negative' : 'positive'}`}>
+                  {coin.price_change_24h} ({coin.price_change_percentage_24h}%)
+                </span>
+              </div>
+              <div className="detail-item">
+                <span className="label">24h High:</span>
+                <span className="value">₹{coin.high_24h}</span>
+              </div>
+              <div className="detail-item">
+                <span className="label">24h Low:</span>
+                <span className="value">₹{coin.low_24h}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+        {coins.slice(2, 3).map((coin) => (
           <div className={`box box4 ${coin.price_change_percentage_24h < 0 ? 'negative' : 'positive'}`} key={coin.id}>
             <div className="coin-header">
               <img src={coin.image} alt={coin.name} />
@@ -111,7 +136,6 @@ const Dashboard = () => {
             value={searchTerm}
             onChange={handleSearch}
           />
-          <button>CRYPTO-Search</button>
           <div className="coin-list">
             {filteredCoins.map((coin) => (
               <div className={`coin-card ${coin.price_change_percentage_24h < 0 ? 'negative' : 'positive'}`} key={coin.id}>
