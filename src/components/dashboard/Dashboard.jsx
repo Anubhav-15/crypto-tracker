@@ -38,13 +38,25 @@ const Dashboard = () => {
       <div className="sidebar"><Sidebar /></div>
       <div className="content">
         <div className="box box1">
-          BALANCE
+          <div className="box1-content">
+            <div className="box1-item">
+              <span>Invested</span>
+            </div>
+            <div className="box1-item">
+              <span>Profit</span>
+            </div>
+            <div className="box1-item">
+              <span>Loss</span>
+            </div>
+          </div>
         </div>
         {coins.slice(0, 1).map((coin) => (
           <div className={`box box2 ${coin.price_change_percentage_24h < 0 ? 'negative' : 'positive'}`} key={coin.id}>
             <div className="coin-header">
+            <div className="image-container">
               <img src={coin.image} alt={coin.name} />
-              <h2>{coin.name}</h2>
+            </div>
+            <h2>{coin.name}</h2>
             </div>
             <div className="coin-details">
               <div className="detail-item">
@@ -71,7 +83,9 @@ const Dashboard = () => {
         {coins.slice(1, 2).map((coin) => (
           <div className={`box box3 ${coin.price_change_percentage_24h < 0 ? 'negative' : 'positive'}`} key={coin.id}>
             <div className="coin-header">
+            <div className="image-container">
               <img src={coin.image} alt={coin.name} />
+            </div>
               <h2>{coin.name}</h2>
             </div>
             <div className="coin-details">
@@ -99,8 +113,10 @@ const Dashboard = () => {
         {coins.slice(2, 3).map((coin) => (
           <div className={`box box4 ${coin.price_change_percentage_24h < 0 ? 'negative' : 'positive'}`} key={coin.id}>
             <div className="coin-header">
+            <div className="image-container">
               <img src={coin.image} alt={coin.name} />
-              <h2>{coin.name}</h2>
+            </div>
+            <h2>{coin.name}</h2>
             </div>
             <div className="coin-details">
               <div className="detail-item">
@@ -128,24 +144,31 @@ const Dashboard = () => {
           CHART
         </div>
         <div className="box box6">
-          <input
-            type="search"
-            id="site-search"
-            name="q"
-            placeholder="Search for crypto..."
-            value={searchTerm}
-            onChange={handleSearch}
-          />
+          <div className="search-container">
+            <input
+              type="search"
+              id="site-search"
+              name="q"
+              placeholder="Search for crypto..."
+              value={searchTerm}
+              onChange={handleSearch}
+            />
+            <span className="search-icon">&#128269;</span>
+          </div>
           <div className="coin-list">
             {filteredCoins.map((coin) => (
               <div className={`coin-card ${coin.price_change_percentage_24h < 0 ? 'negative' : 'positive'}`} key={coin.id}>
-                <img src={coin.image} alt={coin.name} className="coin-image" />
-                <div className="coin-info">
+              <img src={coin.image} alt={coin.name} className="coin-image" />
+              <div className="coin-info">
+                <div className="coin-info-heading">
                   <h3>{coin.name}</h3>
-                  <p>₹{coin.current_price}</p>
-                  <p>{coin.price_change_percentage_24h}%</p>
+                </div>
+                <div className="coin-info-details">
+                  <div className="coin-info-details-current"><p>₹{coin.current_price}</p></div>
+                  <div className="coin-info-details-change"><p>{coin.price_change_percentage_24h}%</p></div>
                 </div>
               </div>
+            </div>            
             ))}
           </div>
         </div>
